@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NoCamera Studios</title>
+<meta name="description" content="Motion graphics and cinematic AI content for brands. No crew, no set, no camera.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NoCamera Studios">
+<meta property="og:title" content="NoCamera Studios">
+<meta property="og:description" content="Everything you see. Nothing was filmed. Motion graphics, AI films and AI photos for brands.">
+<meta property="og:url" content="https://kareemhomsi16-create.github.io/nocamera.studios/">
+<meta property="og:image" content="https://kareemhomsi16-create.github.io/nocamera.studios/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kareemhomsi16-create.github.io/nocamera.studios/og.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap">
+<style>
+/* Pure black and white, set in the logo's own geometric sans. Motion leads as a showcase; AI films and photos follow as a tight grid of small tiles. One tap opens any piece full size with sound. */
+:root{
+  --bg:#000;
+  --fg:#f4f4f2;
+  --mute:#8d8d8a;
+  --line:#1b1b1b;
+  --tile:#0b0b0b;
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --gutter:clamp(16px,3.4vw,40px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-size:10.5px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+em.f{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;font-size:1.14em;line-height:.8}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand img{height:34px;width:auto}
+header nav{display:flex;align-items:center;gap:26px}
+header nav a{font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);transition:color .2s}
+header nav a:hover{color:var(--fg)}
+header nav .pill{white-space:nowrap;color:var(--bg);background:var(--fg);padding:10px 16px;border-radius:999px;font-weight:600}
+header nav .pill:hover{color:var(--bg);opacity:.85}
+@media (max-width:600px){header nav a:not(.pill){display:none}.brand img{height:28px}}
+
+/* intro */
+.intro{padding-block:clamp(44px,7vw,96px) clamp(36px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.intro h1{margin:18px 0 0;font-weight:800;text-transform:uppercase;font-size:clamp(34px,6.2vw,86px);line-height:.98;letter-spacing:-.015em}
+.intro p{margin:0;max-width:30ch;color:var(--mute)}
+@media (max-width:760px){.intro{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .intro>*{animation:up .9s cubic-bezier(.2,.7,.1,1) both}
+  .intro>*:nth-child(2){animation-delay:.1s}
+}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+
+/* section heads */
+section{scroll-margin-top:72px}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px;margin-bottom:clamp(20px,3vw,32px)}
+.shead h2{margin:10px 0 0;font-weight:800;text-transform:uppercase;font-size:clamp(30px,4.4vw,56px);line-height:1;letter-spacing:-.01em}
+
+/* motion showcase: 16:9 and 9:16 sized to the same height */
+.motion{padding-bottom:clamp(56px,7vw,96px)}
+.mrow{display:grid;grid-template-columns:3.16fr 1fr;gap:clamp(10px,1.2vw,16px);align-items:start}
+.mitem{margin:0;min-width:0}
+.mitem .frame{position:relative;display:block;width:100%;overflow:hidden;border-radius:6px;background:var(--tile)}
+.mitem.wide .frame{aspect-ratio:16/9}
+.mitem.tall .frame{aspect-ratio:9/16}
+.mitem video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
+.mitem .frame:hover video{transform:scale(1.03)}
+.mitem .snd{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:8px;padding:7px 12px 7px 10px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.22);font-size:10px;letter-spacing:.22em;text-transform:uppercase;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.mitem .snd svg{width:10px;height:10px}
+.mitem.tall .snd{top:10px;bottom:auto;right:10px}
+@media (max-width:700px){.mitem .snd .t{display:none}.mitem .snd{padding:8px}}
+.mitem figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.mitem figcaption b{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+.mitem figcaption .label{text-align:right}
+.mtags{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(20px,3vw,32px);padding:0;list-style:none}
+.mtags li{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:9px 14px}
+@media (max-width:700px){
+  .mrow{grid-template-columns:1fr}
+  .mitem.tall{display:grid;grid-template-columns:44% minmax(0,1fr);gap:16px;align-items:end}
+  .mitem.tall figcaption{flex-direction:column;align-items:flex-start;margin:0 0 4px}
+  .mitem.tall figcaption .label{text-align:left}
+}
+
+/* filters */
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font-size:10.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);padding:9px 14px;border:1px solid var(--line);border-radius:999px;transition:all .2s}
+.filters button:hover{color:var(--fg)}
+.filters button[aria-pressed="true"]{color:var(--bg);background:var(--fg);border-color:var(--fg)}
+
+/* AI work grid of small tiles */
+.work{padding-bottom:clamp(64px,8vw,112px)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,.9vw,12px)}
+@media (max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--tile);border-radius:6px;text-align:left;min-width:0}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
+.tile:hover img,.tile:hover video{transform:scale(1.04)}
+.tile .meta{position:absolute;inset:auto 0 0 0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.tile .meta b{display:block;font-size:12.5px;font-weight:600;line-height:1.3}
+.tile .meta small{display:block;margin-top:4px;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,244,242,.65)}
+.tile .kind{flex:none;width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center}
+.tile .kind svg{width:9px;height:9px}
+.tile[hidden]{display:none!important}
+@media (max-width:420px){.tile .meta{padding:22px 10px 9px}.tile .meta b{font-size:11.5px}.tile .kind{display:none}}
+
+/* contact */
+.contact{border-top:1px solid var(--line);padding-block:clamp(56px,8vw,112px)}
+.contact h2{margin:16px 0 0;font-weight:800;text-transform:uppercase;font-size:clamp(30px,5.2vw,70px);line-height:1;letter-spacing:-.01em;max-width:15ch}
+.rows{margin-top:clamp(32px,4vw,52px);border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:160px minmax(0,1fr) auto;gap:16px;align-items:center;padding-block:22px;border-bottom:1px solid var(--line);transition:padding .3s}
+.row:hover{padding-left:8px}
+.row .v{font-size:clamp(17px,2.4vw,28px);font-weight:600;overflow-wrap:anywhere}
+.row .go{color:var(--mute);font-size:20px;transition:color .2s,transform .3s}
+.row:hover .go{color:var(--fg);transform:translate(3px,-3px)}
+@media (max-width:560px){.row{grid-template-columns:minmax(0,1fr) auto}.row .label{grid-column:1/-1}}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:30px calc(30px + env(safe-area-inset-bottom,0px))}
+footer img{height:44px;width:auto}
+
+/* viewer */
+.viewer{position:fixed;inset:0;z-index:100;background:#000;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gutter) calc(16px + env(safe-area-inset-bottom,0px))}
+.viewer[hidden]{display:none!important}
+.viewer .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:6px 12px}
+.viewer .stage{display:flex;align-items:center;justify-content:center;min-height:0;position:relative}
+.viewer .stage img,.viewer .stage video{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:6px;background:#000}
+.viewer .info{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-top:14px}
+.viewer .info b{display:block;font-size:clamp(15px,1.8vw,20px);font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px}
+.viewer .info a{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid #444;padding-bottom:2px}
+.vbtn{width:44px;height:44px;border-radius:50%;border:1px solid #333;display:grid;place-items:center;transition:border-color .2s;background:rgba(0,0,0,.5)}
+.vbtn:hover{border-color:var(--fg)}
+.vbtn svg{width:16px;height:16px}
+.nav-l,.nav-r{position:absolute;top:50%;transform:translateY(-50%)}
+.nav-l{left:0}.nav-r{right:0}
+@media (max-width:620px){.nav-l,.nav-r{top:auto;bottom:-6px;transform:none}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.png" alt="NoCamera Studios" width="734" height="224"></a>
+    <nav aria-label="Main">
+      <a href="#motion">Motion</a>
+      <a href="#work">AI Work</a>
+      <a href="#contact">Contact</a>
+      <a class="pill" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="intro">
+      <div>
+        <div class="label">Motion Graphics · AI Films · AI Photos</div>
+        <h1>Everything you see.<br>Nothing was <em class="f">filmed.</em></h1>
+      </div>
+      <p>Motion graphics and cinematic AI content for brands. No crew, no set, no camera.</p>
+    </section>
+
+    <section class="motion" id="motion">
+      <div class="shead">
+        <div><span class="label">Motion graphics</span><h2>Motion</h2></div>
+        <span class="label">Tap to play with sound</span>
+      </div>
+      <div class="mrow" id="mrow"></div>
+      <ul class="mtags">
+        <li>Product launches</li><li>App &amp; UI animation</li><li>Logo reveals</li><li>Explainer &amp; offer reels</li><li>Arabic &amp; English type</li>
+      </ul>
+    </section>
+
+    <section class="work" id="work">
+      <div class="shead">
+        <div><span class="label">AI films &amp; photos</span><h2>AI Work</h2></div>
+        <div class="filters" role="group" aria-label="Filter AI work">
+          <button type="button" data-f="all" aria-pressed="true">All</button>
+          <button type="button" data-f="film" aria-pressed="false">Films</button>
+          <button type="button" data-f="photo" aria-pressed="false">Photos</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </div>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="label">Contact</div>
+      <h2>Let’s make something nobody <em class="f">filmed.</em></h2>
+      <div class="rows" id="rows"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="NoCamera Studios" width="734" height="224" loading="lazy">
+    <span class="label">© <span id="yr">2026</span> · @nocamera.studios</span>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Work viewer">
+  <div class="top">
+    <span class="label" id="vPos">1 / 1</span>
+    <button class="vbtn" type="button" id="vClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="stage" id="stage"></div>
+  <div class="info">
+    <div><b id="vTitle"></b><span class="label" id="vSub"></span></div>
+    <a id="vLink" href="#" target="_blank" rel="noopener">View on Instagram ↗</a>
+  </div>
+</div>
+
+<script>
+/* ====== EDIT HERE — اكتب رقم الواتساب والإيميل بين علامتي التنصيص ====== */
+const CONTACT = {
+  whatsapp: "+20 112 406 2711",
+  email: "kareemhomsi16@gmail.com",
+  instagram: "nocamera.studios"
+};
+// Motion pieces: shape "wide" (16:9) or "tall" (9:16)
+const MOTION = [
+  { shape:"wide", title:"Spotify", sub:"Product motion · Concept · 0:20", src:"spotify.mp4", poster:"spotify.jpg", ig:"" },
+  { shape:"tall", title:"CRT",     sub:"Launch reel · 0:53",             src:"crt.mp4",     poster:"crt.jpg",     ig:"" }
+];
+// AI films & photos
+const WORKS = [
+  { type:"film",  title:"You weren’t supposed to see this", client:"Unit 13", src:"DX1yxSBtaw_.mp4", poster:"DX1yxSBtaw_.jpg", ig:"https://www.instagram.com/reel/DX1yxSBtaw_/" },
+  { type:"photo", title:"Seen in Mazzeh",          client:"Unit 13",        src:"unit13-taxi.jpg",   ig:"https://www.instagram.com/p/DWZcznQjOQl/" },
+  { type:"film",  title:"No location. No models.", client:"Fashion film",   src:"DaK7zzLtPcB.mp4", poster:"DaK7zzLtPcB.jpg", ig:"https://www.instagram.com/reel/DaK7zzLtPcB/" },
+  { type:"film",  title:"The power of silence",    client:"Corteiz",        src:"DUqblzSDR4s.mp4", poster:"DUqblzSDR4s.jpg", ig:"https://www.instagram.com/reel/DUqblzSDR4s/" },
+  { type:"film",  title:"The soul of the Levant",  client:"The Boujee Boo", src:"DWT8jdBOYsr.mp4", poster:"DWT8jdBOYsr.jpg", ig:"https://www.instagram.com/reel/DWT8jdBOYsr/" },
+  { type:"photo", title:"Heard everywhere",        client:"Unit 13",        src:"unit13-mazzeh.jpg", ig:"https://www.instagram.com/p/DWZcznQjOQl/" },
+  { type:"film",  title:"Street code",             client:"Syna World",     src:"DVtEiJYDEo9.mp4", poster:"DVtEiJYDEo9.jpg", ig:"https://www.instagram.com/reel/DVtEiJYDEo9/" },
+  { type:"photo", title:"AI photoshoot",           client:"Studio",         src:"night-call.jpg",    ig:"https://www.instagram.com/p/DZ-DdYNtBlw/" }
+];
+/* ======================= */
+
+(function(){
+  const $ = s => document.querySelector(s);
+  const isVid = w => /\.mp4$/i.test(w.src);
+  const typeName = {film:"AI film", photo:"AI photo"};
+  const playIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
+  const imgIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="4" width="16" height="16"/></svg>';
+  const vid = (src, poster) => '<video muted loop playsinline preload="metadata"' + (poster ? ' poster="' + poster + '"' : '') + ' src="' + src + '"></video>';
+
+  // one list for the viewer: motion first, then AI work
+  const ALL = MOTION.map(m => ({...m, group:"motion"})).concat(WORKS.map(w => ({...w, group:"ai", sub: w.client + " · " + typeName[w.type]})));
+
+  // motion showcase
+  const mrow = $("#mrow");
+  MOTION.forEach((m, i) => {
+    const f = document.createElement("figure");
+    f.className = "mitem " + m.shape;
+    f.innerHTML = '<button type="button" class="frame">' + vid(m.src, m.poster) + '<span class="snd" aria-hidden="true">' + playIcon + '<span class="t">Sound</span></span></button><figcaption><b></b><span class="label"></span></figcaption>';
+    f.querySelector("b").textContent = m.title;
+    f.querySelector("figcaption .label").textContent = m.sub;
+    f.querySelector(".frame").setAttribute("aria-label", "Play " + m.title + " with sound");
+    f.querySelector(".frame").addEventListener("click", () => openViewer(i));
+    mrow.appendChild(f);
+  });
+
+  // AI grid
+  const grid = $("#grid");
+  WORKS.forEach((w, j) => {
+    const i = MOTION.length + j;
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "tile"; b.dataset.type = w.type; b.dataset.i = i;
+    b.setAttribute("aria-label", "Open " + w.title + ", " + w.client);
+    b.innerHTML = (isVid(w) ? vid(w.src, w.poster) : '<img loading="lazy" alt="" src="' + w.src + '">')
+      + '<span class="meta"><span><b></b><small></small></span><span class="kind" aria-hidden="true">' + (isVid(w) ? playIcon : imgIcon) + '</span></span>';
+    b.querySelector("b").textContent = w.title;
+    b.querySelector("small").textContent = w.client + " · " + typeName[w.type];
+    b.addEventListener("click", () => openViewer(i));
+    grid.appendChild(b);
+  });
+
+  // previews play muted only while on screen
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!still && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting && viewer.hidden) { const p = v.play(); if (p && p.catch) p.catch(()=>{}); } else v.pause();
+    }), {threshold:.3});
+    document.querySelectorAll("main video").forEach(v => io.observe(v));
+  }
+
+  // filters
+  const btns = document.querySelectorAll("[data-f]");
+  btns.forEach(btn => btn.addEventListener("click", () => {
+    const f = btn.dataset.f;
+    btns.forEach(x => x.setAttribute("aria-pressed", x === btn));
+    grid.querySelectorAll(".tile").forEach(t => { t.hidden = !(f === "all" || t.dataset.type === f); });
+  }));
+
+  // viewer
+  const viewer = $("#viewer"), stage = $("#stage");
+  let cur = 0, lastFocus = null;
+  const list = () => ALL[cur].group === "motion"
+    ? MOTION.map((_, i) => i)
+    : [...grid.querySelectorAll(".tile:not([hidden])")].map(t => +t.dataset.i);
+  function render(){
+    const w = ALL[cur], l = list(), pos = l.indexOf(cur);
+    stage.innerHTML = "";
+    let m;
+    if (isVid(w)) { m = document.createElement("video"); m.src = w.src; m.controls = true; m.playsInline = true; m.autoplay = true; if (w.poster) m.poster = w.poster; }
+    else { m = document.createElement("img"); m.src = w.src; m.alt = w.title; }
+    stage.appendChild(m);
+    if (l.length > 1) {
+      stage.insertAdjacentHTML("beforeend",
+        '<button class="vbtn nav-l" type="button" data-step="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+        '<button class="vbtn nav-r" type="button" data-step="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>');
+    }
+    $("#vTitle").textContent = w.title;
+    $("#vSub").textContent = w.sub;
+    $("#vPos").textContent = (pos + 1) + " / " + l.length;
+    const link = $("#vLink"); link.hidden = !w.ig; if (w.ig) link.href = w.ig;
+  }
+  function step(d){ const l = list(); cur = l[(l.indexOf(cur) + d + l.length) % l.length]; render(); }
+  function openViewer(i){
+    lastFocus = document.activeElement; cur = i; viewer.hidden = false; document.body.style.overflow = "hidden";
+    document.querySelectorAll("main video").forEach(v => v.pause());
+    render(); $("#vClose").focus();
+  }
+  function closeViewer(){
+    viewer.hidden = true; stage.innerHTML = ""; document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+  $("#vClose").addEventListener("click", closeViewer);
+  stage.addEventListener("click", e => { const s = e.target.closest("[data-step]"); if (s) step(+s.dataset.step); else if (e.target === stage) closeViewer(); });
+  document.addEventListener("keydown", e => {
+    if (viewer.hidden) return;
+    if (e.key === "Escape") closeViewer();
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+  });
+  let sx = null;
+  stage.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, {passive:true});
+  stage.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1); sx = null; });
+
+  // contact rows; empty ones stay hidden
+  const rows = $("#rows");
+  const add = (label, value, href) => {
+    const a = document.createElement("a");
+    a.className = "row"; a.href = href;
+    if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
+    a.innerHTML = '<span class="label"></span><span class="v"></span><span class="go" aria-hidden="true">↗</span>';
+    a.children[0].textContent = label; a.children[1].textContent = value;
+    rows.appendChild(a);
+  };
+  const wa = CONTACT.whatsapp.replace(/\D/g, "");
+  if (wa) add("WhatsApp", CONTACT.whatsapp, "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hi NoCamera Studios, I'd like to start a project."));
+  if (CONTACT.email) add("Email", CONTACT.email, "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent("New project"));
+  add("Instagram", "@" + CONTACT.instagram, "https://www.instagram.com/" + CONTACT.instagram + "/");
+  if (!wa) add("Instagram DM", "Send us a message", "https://ig.me/m/" + CONTACT.instagram);
+
+  $("#yr").textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
