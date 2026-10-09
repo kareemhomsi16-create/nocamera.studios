@@ -18,10 +18,15 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta name="theme-color" content="#000000">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap">
+<link rel="preload" href="fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:300;font-display:swap;src:url(fonts/montserrat-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/montserrat-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/montserrat-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
 /* Pure black and white, set in the logo's own geometric sans. Motion leads as a showcase; AI films and photos follow as a tight grid of small tiles. One tap opens any piece full size with sound. */
 :root{
   --bg:#000;
@@ -137,6 +142,15 @@ section{scroll-margin-top:72px}
 footer{border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:30px calc(30px + env(safe-area-inset-bottom,0px))}
 footer img{height:44px;width:auto}
+.foot-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.foot-links{display:flex;gap:18px}
+.foot-links a{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg);border-bottom:1px solid #444;padding-bottom:2px}
+.disclaimer{max-width:var(--max,1240px);margin-inline:auto;padding:0 var(--gutter) 28px;color:var(--mute);font-size:12px;line-height:1.6}
+@media (max-width:600px){.foot-right{align-items:flex-start}}
+.pausebtn{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--fg);padding:9px 14px;border:1px solid #333;border-radius:999px}
+.pausebtn:hover{border-color:var(--fg)}
+.pausebtn svg{width:10px;height:10px}
+.shead-r{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 
 /* viewer */
 .viewer{position:fixed;inset:0;z-index:100;background:#000;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gutter) calc(16px + env(safe-area-inset-bottom,0px))}
@@ -184,7 +198,7 @@ footer img{height:44px;width:auto}
     <section class="motion" id="motion">
       <div class="shead">
         <div><span class="label">Motion graphics</span><h2>Motion</h2></div>
-        <span class="label">Tap to play with sound</span>
+        <div class="shead-r"><span class="label">Tap to play with sound</span><button type="button" class="pausebtn" id="pauseAll" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg><span>Pause previews</span></button></div>
       </div>
       <div class="mrow" id="mrow"></div>
       <ul class="mtags">
@@ -217,8 +231,12 @@ footer img{height:44px;width:auto}
 <footer>
   <div class="wrap">
     <img src="logo.png" alt="NoCamera Studios" width="734" height="224" loading="lazy">
-    <span class="label">© <span id="yr">2026</span> · @nocamera.studios</span>
+    <div class="foot-right">
+      <nav class="foot-links" aria-label="Legal"><a href="legal.html">Privacy &amp; Terms</a></nav>
+      <span class="label">© <span id="yr">2026</span> NoCamera Studios</span>
+    </div>
   </div>
+  <p class="disclaimer">Brand names and logos shown in work marked “Concept” belong to their owners. Concept pieces are self-initiated and are not affiliated with or endorsed by those brands.</p>
 </footer>
 
 <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Work viewer">
@@ -251,10 +269,10 @@ const WORKS = [
   { type:"film",  title:"You weren’t supposed to see this", client:"Unit 13", src:"DX1yxSBtaw_.mp4", poster:"DX1yxSBtaw_.jpg", ig:"https://www.instagram.com/reel/DX1yxSBtaw_/" },
   { type:"photo", title:"Seen in Mazzeh",          client:"Unit 13",        src:"unit13-taxi.jpg",   ig:"https://www.instagram.com/p/DWZcznQjOQl/" },
   { type:"film",  title:"No location. No models.", client:"Fashion film",   src:"DaK7zzLtPcB.mp4", poster:"DaK7zzLtPcB.jpg", ig:"https://www.instagram.com/reel/DaK7zzLtPcB/" },
-  { type:"film",  title:"The power of silence",    client:"Corteiz",        src:"DUqblzSDR4s.mp4", poster:"DUqblzSDR4s.jpg", ig:"https://www.instagram.com/reel/DUqblzSDR4s/" },
+  { type:"film",  title:"The power of silence",    client:"Corteiz · Concept",src:"DUqblzSDR4s.mp4", poster:"DUqblzSDR4s.jpg", ig:"https://www.instagram.com/reel/DUqblzSDR4s/" },
   { type:"film",  title:"The soul of the Levant",  client:"The Boujee Boo", src:"DWT8jdBOYsr.mp4", poster:"DWT8jdBOYsr.jpg", ig:"https://www.instagram.com/reel/DWT8jdBOYsr/" },
   { type:"photo", title:"Heard everywhere",        client:"Unit 13",        src:"unit13-mazzeh.jpg", ig:"https://www.instagram.com/p/DWZcznQjOQl/" },
-  { type:"film",  title:"Street code",             client:"Syna World",     src:"DVtEiJYDEo9.mp4", poster:"DVtEiJYDEo9.jpg", ig:"https://www.instagram.com/reel/DVtEiJYDEo9/" },
+  { type:"film",  title:"Street code",             client:"Syna World · Concept",src:"DVtEiJYDEo9.mp4", poster:"DVtEiJYDEo9.jpg", ig:"https://www.instagram.com/reel/DVtEiJYDEo9/" },
   { type:"photo", title:"AI photoshoot",           client:"Studio",         src:"night-call.jpg",    ig:"https://www.instagram.com/p/DZ-DdYNtBlw/" }
 ];
 /* ======================= */
@@ -298,15 +316,25 @@ const WORKS = [
     grid.appendChild(b);
   });
 
+  const viewer = $("#viewer");
   // previews play muted only while on screen
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!still && "IntersectionObserver" in window) {
+  let paused = still;
+  const onScreen = new Set();
+  const tryPlay = v => { if (!paused && viewer.hidden) { const p = v.play(); if (p && p.catch) p.catch(()=>{}); } };
+  const resumeVisible = () => onScreen.forEach(tryPlay);
+  if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(es => es.forEach(e => {
       const v = e.target;
-      if (e.isIntersecting && viewer.hidden) { const p = v.play(); if (p && p.catch) p.catch(()=>{}); } else v.pause();
+      if (e.isIntersecting) { onScreen.add(v); tryPlay(v); } else { onScreen.delete(v); v.pause(); }
     }), {threshold:.3});
     document.querySelectorAll("main video").forEach(v => io.observe(v));
   }
+  const pauseBtn = $("#pauseAll");
+  const syncPauseBtn = () => { pauseBtn.setAttribute("aria-pressed", paused); pauseBtn.querySelector("span").textContent = paused ? "Play previews" : "Pause previews";
+    pauseBtn.querySelector("svg").innerHTML = paused ? '<path d="M7 4v16l13-8z"/>' : '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>'; };
+  pauseBtn.addEventListener("click", () => { paused = !paused; if (paused) document.querySelectorAll("main video").forEach(v => v.pause()); else resumeVisible(); syncPauseBtn(); });
+  syncPauseBtn();
 
   // filters
   const btns = document.querySelectorAll("[data-f]");
@@ -317,7 +345,7 @@ const WORKS = [
   }));
 
   // viewer
-  const viewer = $("#viewer"), stage = $("#stage");
+  const stage = $("#stage");
   let cur = 0, lastFocus = null;
   const list = () => ALL[cur].group === "motion"
     ? MOTION.map((_, i) => i)
@@ -348,12 +376,20 @@ const WORKS = [
   function closeViewer(){
     viewer.hidden = true; stage.innerHTML = ""; document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
+    resumeVisible();
   }
   $("#vClose").addEventListener("click", closeViewer);
   stage.addEventListener("click", e => { const s = e.target.closest("[data-step]"); if (s) step(+s.dataset.step); else if (e.target === stage) closeViewer(); });
   document.addEventListener("keydown", e => {
     if (viewer.hidden) return;
     if (e.key === "Escape") closeViewer();
+    if (e.key === "Tab") {
+      const f = [...viewer.querySelectorAll('button, a[href]:not([hidden]), video[controls]')].filter(x => !x.hidden && x.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
     if (e.key === "ArrowRight") step(1);
     if (e.key === "ArrowLeft") step(-1);
   });
