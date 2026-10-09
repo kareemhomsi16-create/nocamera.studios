@@ -7,12 +7,21 @@
 <meta name="description" content="Privacy notice and terms of use for the NoCamera Studios website.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#000000">
+<script>
+(function(){var q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("ncs-lang")}catch(e){}
+var l=(q==="ar"||q==="en")?q:(s==="ar"||s==="en")?s:((navigator.language||"").toLowerCase().indexOf("ar")===0?"ar":"en");
+try{localStorage.setItem("ncs-lang",l)}catch(e){}
+document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";})();
+</script>
 <link rel="icon" type="image/png" href="favicon.png">
 <style>
 @font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/montserrat-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2")}
 @font-face{font-family:"Montserrat";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/montserrat-latin-800-normal.woff2) format("woff2")}
-:root{--bg:#000;--fg:#f4f4f2;--mute:#8d8d8a;--line:#1b1b1b;--f:"Montserrat","Helvetica Neue",Arial,sans-serif;--gutter:clamp(16px,3.4vw,40px);color-scheme:dark}
+@font-face{font-family:"Alexandria";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/alexandria-arabic-400-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Alexandria";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/alexandria-arabic-600-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Alexandria";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/alexandria-arabic-800-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+:root{--bg:#000;--fg:#f4f4f2;--mute:#8d8d8a;--line:#1b1b1b;--f:"Montserrat","Alexandria","Helvetica Neue",Arial,sans-serif;--gutter:clamp(16px,3.4vw,40px);color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:var(--fg)}
@@ -28,7 +37,7 @@ main{padding-block:clamp(40px,7vw,88px)}
 h1{font-weight:800;text-transform:uppercase;font-size:clamp(30px,5vw,52px);line-height:1;margin:14px 0 8px;letter-spacing:-.01em}
 h2{font-weight:800;text-transform:uppercase;font-size:clamp(18px,2.4vw,22px);letter-spacing:.02em;margin:48px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
 p,li{color:#cfcfcb;max-width:65ch}
-ul{padding-left:1.2em}
+ul{padding-inline-start:1.2em}
 li+li{margin-top:6px}
 dl{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 16px;margin:0}
 dt{color:var(--mute);font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding-top:2px}
@@ -36,17 +45,30 @@ dd{margin:0;overflow-wrap:anywhere}
 @media (max-width:520px){dl{grid-template-columns:1fr}dd{margin-bottom:8px}}
 footer{border-top:1px solid var(--line)}
 footer .wrap{padding-block:24px;color:var(--mute);font-size:12px}
+.hdr-r{display:flex;align-items:center;gap:18px}
+.lang{font-family:"Montserrat",sans-serif;font-size:12px;color:var(--fg);text-decoration:none;border:1px solid #333;border-radius:999px;padding:7px 12px}
+.lang:hover{border-color:var(--fg)}
+html[lang="en"] [data-lang="ar"],html[lang="ar"] [data-lang="en"]{display:none!important}
+html[lang="ar"] *{letter-spacing:0!important}
+html[lang="ar"] body{line-height:1.9}
+html[lang="ar"] .label,html[lang="ar"] .back,html[lang="ar"] dt{font-size:13px}
+html[lang="ar"] h1{line-height:1.35}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <a href="./"><img src="logo.png" alt="NoCamera Studios, back to home" width="734" height="224"></a>
-    <a class="back" href="./">← Back to site</a>
+    <div class="hdr-r">
+      <a class="lang" data-lang="en" href="?lang=ar" lang="ar" hreflang="ar">عربي</a>
+      <a class="lang" data-lang="ar" href="?lang=en" lang="en" hreflang="en">English</a>
+      <a class="back" data-lang="en" href="./?lang=en">← Back to site</a>
+      <a class="back" data-lang="ar" href="./?lang=ar">→ العودة للموقع</a>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" data-lang="en">
   <span class="label">Last updated 9 October 2026</span>
   <h1>Privacy &amp; Terms</h1>
   <p>This page explains what happens to your information when you visit this website, and the terms for using the work shown on it.</p>
@@ -62,7 +84,7 @@ footer .wrap{padding-block:24px;color:var(--mute);font-size:12px}
   <h2>Privacy</h2>
   <p>This website does not collect personal data.</p>
   <ul>
-    <li><strong>No cookies.</strong> The site sets no cookies and stores nothing in your browser, so there is no cookie banner.</li>
+    <li><strong>No cookies.</strong> The site sets no cookies. The only thing it remembers in your browser is the language you pick, so there is no cookie banner.</li>
     <li><strong>No tracking.</strong> There is no analytics, advertising pixel or tracking script.</li>
     <li><strong>No forms.</strong> You don’t enter any information on this site.</li>
     <li><strong>No third-party embeds.</strong> Videos, images and fonts are served from this site itself.</li>
@@ -79,6 +101,41 @@ footer .wrap{padding-block:24px;color:var(--mute);font-size:12px}
 
   <h2>Changes</h2>
   <p>If this page changes, the date at the top will change too.</p>
+</main>
+
+<main class="wrap" data-lang="ar" lang="ar">
+  <span class="label">آخر تحديث: 9 أكتوبر 2026</span>
+  <h1>الخصوصية والشروط</h1>
+  <p>توضح هذه الصفحة ما يحدث لمعلوماتك عند زيارة هذا الموقع، وشروط استخدام الأعمال المعروضة فيه.</p>
+
+  <h2>من نحن</h2>
+  <dl>
+    <dt>النشاط</dt><dd>NoCamera Studios</dd>
+    <dt>واتساب</dt><dd><bdi>+20 112 406 2711</bdi></dd>
+    <dt>البريد الإلكتروني</dt><dd><a href="mailto:kareemhomsi16@gmail.com"><bdi>kareemhomsi16@gmail.com</bdi></a></dd>
+    <dt>إنستغرام</dt><dd><a href="https://www.instagram.com/nocamera.studios/" target="_blank" rel="noopener"><bdi>@nocamera.studios</bdi></a></dd>
+  </dl>
+
+  <h2>الخصوصية</h2>
+  <p>هذا الموقع لا يجمع أي بيانات شخصية.</p>
+  <ul>
+    <li><strong>لا ملفات تعريف ارتباط (cookies).</strong> لا يضع الموقع أي cookies ولا يخزّن شيئاً في متصفحك سوى اللغة التي تختارها، لذلك لا يوجد شريط موافقة على الـ cookies.</li>
+    <li><strong>لا تتبّع.</strong> لا توجد أدوات تحليل أو بكسلات إعلانية أو سكربتات تتبّع.</li>
+    <li><strong>لا نماذج.</strong> لا تُدخل أي معلومات في هذا الموقع.</li>
+    <li><strong>لا محتوى خارجي مضمَّن.</strong> الفيديوهات والصور والخطوط تُحمَّل من هذا الموقع نفسه.</li>
+  </ul>
+  <p><strong>الاستضافة.</strong> الموقع مستضاف على GitHub Pages. ومثل أي جهة استضافة، قد تعالج GitHub بيانات تقنية مثل عنوان IP الخاص بك لتشغيل الموقع وحمايته. راجع <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">بيان الخصوصية من GitHub</a>.</p>
+  <p><strong>عند التواصل معنا.</strong> إذا راسلتنا عبر واتساب أو البريد الإلكتروني أو إنستغرام، فإن تلك الخدمة تتعامل مع رسالتك وفق سياسة الخصوصية الخاصة بها. نستخدم اسمك وبيانات التواصل وما تخبرنا به فقط للرد عليك ومناقشة مشروعك، ولا نبيعها ولا نشاركها. يمكنك أن تطلب منّا في أي وقت حذف رسائلك وبياناتك.</p>
+
+  <h2>شروط الاستخدام</h2>
+  <p><strong>أعمالنا.</strong> الفيديوهات والصور في هذا الموقع أعمال من معرض NoCamera Studios. تُعرض أعمال العملاء للتعريف بما نقدّمه، وقد تعود بعض حقوقها للعميل أيضاً. يُرجى عدم نسخ أي منها أو تنزيله أو إعادة نشره أو استخدامه دون إذن كتابي.</p>
+  <p><strong>الأعمال التجريبية والعلامات التجارية.</strong> الأعمال المعلَّمة بـ«عمل تجريبي» مبادرات ذاتية، ولم تطلبها العلامات التي تظهر فيها، وليست تابعة لها ولا معتمدة منها. جميع أسماء العلامات التجارية وشعاراتها ملكٌ لأصحابها.</p>
+  <p><strong>كيف تُصنع الأعمال.</strong> الأعمال في هذا الموقع مصنوعة بأدوات الذكاء الاصطناعي والموشن جرافيك.</p>
+  <p><strong>المشاريع والدفع.</strong> لا يمكن شراء أي شيء من هذا الموقع. يُتفق كتابياً مع كل عميل على الأسعار والتسليمات والتعديلات وأي استرداد قبل بدء المشروع.</p>
+  <p><strong>طلبات الإزالة.</strong> إذا كنت تملك حقوقاً في شيء معروض هنا وتريد إزالته، راسلنا عبر البريد الإلكتروني وسنزيله فوراً.</p>
+
+  <h2>التغييرات</h2>
+  <p>إذا تغيّرت هذه الصفحة، سيتغيّر التاريخ في أعلاها.</p>
 </main>
 
 <footer>
