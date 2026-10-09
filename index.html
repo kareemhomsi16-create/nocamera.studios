@@ -74,7 +74,9 @@ section{scroll-margin-top:72px}
 
 /* motion showcase: 16:9 and 9:16 sized to the same height */
 .motion{padding-bottom:clamp(56px,7vw,96px)}
-.mrow{display:grid;grid-template-columns:3.16fr 1fr;gap:clamp(10px,1.2vw,16px);align-items:start}
+.mrow{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(10px,1.2vw,16px);align-items:start;grid-auto-flow:dense}
+.mrow .wide{grid-column:1}
+.mrow .tall{grid-column:2;grid-row:1 / span 2}
 .mitem{margin:0;min-width:0}
 .mitem .frame{position:relative;display:block;width:100%;overflow:hidden;border-radius:6px;background:var(--tile)}
 .mitem.wide .frame{aspect-ratio:16/9}
@@ -92,6 +94,9 @@ section{scroll-margin-top:72px}
 .mtags li{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:9px 14px}
 @media (max-width:700px){
   .mrow{grid-template-columns:1fr}
+  .mrow .wide,.mrow .tall{grid-column:auto;grid-row:auto}
+  .mitem.wide figcaption{flex-direction:column;align-items:flex-start;gap:4px}
+  .mitem.wide figcaption .label{text-align:left}
   .mitem.tall{display:grid;grid-template-columns:44% minmax(0,1fr);gap:16px;align-items:end}
   .mitem.tall figcaption{flex-direction:column;align-items:flex-start;margin:0 0 4px}
   .mitem.tall figcaption .label{text-align:left}
@@ -237,6 +242,7 @@ const CONTACT = {
 };
 // Motion pieces: shape "wide" (16:9) or "tall" (9:16)
 const MOTION = [
+  { shape:"wide", title:"Higgsfield", sub:"Product motion · Concept · 0:27", src:"higgsfield.mp4", poster:"higgsfield.jpg", ig:"" },
   { shape:"wide", title:"Spotify", sub:"Product motion · Concept · 0:20", src:"spotify.mp4", poster:"spotify.jpg", ig:"" },
   { shape:"tall", title:"CRT",     sub:"Launch reel · 0:53",             src:"crt.mp4",     poster:"crt.jpg",     ig:"" }
 ];
